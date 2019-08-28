@@ -71,4 +71,16 @@ public class SampleWebAppApplicationTests {
 				.andExpect(status().isOk())
 				.andExpect(MockMvcResultMatchers.content().string("[{\"id\":\"001\",\"name\":\"xiaoming\"}]"));
 	}
+	//put
+	@Test
+	public void should_return_201_status_when_update_user() throws Exception {
+		//Given
+		MockHttpServletRequestBuilder input = post("/user").content("{\"username\":\"xiaohong\"}").contentType(MediaType.APPLICATION_JSON);
+		//When
+		ResultActions result = mockMvc.perform(input);
+		//Then
+		result
+				.andDo(MockMvcResultHandlers.print())
+				.andExpect(status().isCreated());
+	}
 }

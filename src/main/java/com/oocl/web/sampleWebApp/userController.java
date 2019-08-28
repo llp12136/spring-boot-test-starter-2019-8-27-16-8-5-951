@@ -27,4 +27,8 @@ public class userController {
     public ResponseEntity<List<User>> queryUser() {
         return ResponseEntity.ok(users);
     }
+    @PutMapping
+    public ResponseEntity<List<User>> updateUser() {
+        return ResponseEntity.ok(users);
+    }
 }
